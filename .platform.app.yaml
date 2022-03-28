@@ -62,8 +62,7 @@ mounts:
         source: local
         source_path: 'console'
     deploy:
-        source: service
-        service: files
+        source: local
         source_path: deploy
 
 # Configuration of the build of this application.

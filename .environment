@@ -9,3 +9,17 @@ if [ -n "$PLATFORM_APP_DIR" -a -f "$PLATFORM_APP_DIR"/composer.json ] ; then
   bin=$(composer config bin-dir --working-dir="$PLATFORM_APP_DIR" --no-interaction 2>/dev/null)
   export PATH="${PLATFORM_APP_DIR}/${bin:-vendor/bin}:${PATH}"
 fi
+
+
+export MYSQL_USER=user
+export MYSQL_PASSWORD=""
+export MYSQL_HOSTNAME=database.internal
+export MYSQL_PORT=3306
+export MYSQL_DATABASE=main
+export DB_URL="mysql://$MYSQL_USER:$MYSQL_PASSWORD@$MYSQL_HOSTNAME:$MYSQL_PORT/$MYSQL_DATABASE"
+
+export DEST_DIR=$PLATFORM_APP_DIR
+export DOCROOT=web
+export SITE_NAME=contentaplatformsh
+export ACCOUNT_NAME=admin
+export ACCOUNT_PASS=$PLATFORM_PROJECT_ENTROPY

@@ -9,18 +9,18 @@ use Drupal\Core\Installer\InstallerKernel;
 $platformsh = new \Platformsh\ConfigReader\Config();
 
 // Configure the database.
-if ($platformsh->hasRelationship('database')) {
-  $creds = $platformsh->credentials('database');
-  $databases['default']['default'] = [
-    'driver' => $creds['scheme'],
-    'database' => $creds['path'],
-    'username' => $creds['username'],
-    'password' => $creds['password'],
-    'host' => $creds['host'],
-    'port' => $creds['port'],
-    'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
-  ];
-}
+// if ($platformsh->hasRelationship('database')) {
+//   $creds = $platformsh->credentials('database');
+//   $databases['default']['default'] = [
+//     'driver' => $creds['scheme'],
+//     'database' => $creds['path'],
+//     'username' => $creds['username'],
+//     'password' => $creds['password'],
+//     'host' => $creds['host'],
+//     'port' => $creds['port'],
+//     'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
+//   ];
+// }
 
 // Enable verbose error messages on development branches, but not on the production branch.
 // You may add more debug-centric settings here if desired to have them automatically enable

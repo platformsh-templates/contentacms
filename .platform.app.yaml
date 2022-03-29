@@ -84,17 +84,17 @@ hooks:
         set -e
         php ./drush/platformsh_generate_drush_yml.php
         cd web
-        if [ -f "deploy/platformsh.installed" ]; then
-            echo "Already installed. Skipping."
-        else
-            drush site-install contenta_jsonapi --verbose --yes \
-                --root=$DEST_DIR/$DOCROOT \
-                --db-url=$DB_URL \
-                --site-name=$SITE_NAME \
-                --account-name=$ACCOUNT_NAME \
-                --account-pass="$ACCOUNT_PASS";
-            touch deploy/platformsh.installed
-        fi
+        # if [ -f "deploy/platformsh.installed" ]; then
+        #     echo "Already installed. Skipping."
+        # else
+        #     drush site-install contenta_jsonapi --verbose --yes \
+        #         --root=$DEST_DIR/$DOCROOT \
+        #         --db-url=$DB_URL \
+        #         --site-name=$SITE_NAME \
+        #         --account-name=$ACCOUNT_NAME \
+        #         --account-pass="$ACCOUNT_PASS";
+        #     touch deploy/platformsh.installed
+        # fi
         drush -y cache-rebuild
         drush -y updatedb
         drush -y config-import
